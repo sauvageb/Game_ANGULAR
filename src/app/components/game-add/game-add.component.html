@@ -1,0 +1,9 @@
+<form [formGroup]="gameForm" (ngSubmit)="onSubmit()">
+  <label for="name">Name</label>
+  <input id="name" type="text" formControlName="name">
+
+  <label for="description">Description</label>
+  <textarea id="description" formControlName="description"></textarea>
+
+  <button type="submit">Add</button>
+</form>
