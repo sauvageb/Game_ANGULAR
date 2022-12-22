@@ -1,6 +1,15 @@
 <h1>Game Details</h1>
-<div *ngIf="game">
-  <p>{{game.id}}</p>
-  <p>{{game.name}}</p>
-  <p>{{game.description}}</p>
-</div>
+
+<mat-card *ngIf="game">
+  <mat-card-header>
+    <mat-card-title>
+      <span>{{ game.name | titlecase }}</span>
+    </mat-card-title>
+    <mat-card-subtitle>
+      <!--      <span>{{ game.createdDate | date }}</span>-->
+    </mat-card-subtitle>
+  </mat-card-header>
+  <mat-card-content>
+    <span class="item-content">{{game.description}}</span>
+  </mat-card-content>
+</mat-card>
