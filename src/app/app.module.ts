@@ -9,6 +9,10 @@ import {GameAddComponent} from './components/game-add/game-add.component';
 import {HttpClientModule} from "@angular/common/http";
 import {GameComponent} from './components/game/game.component';
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
+import { RegisterComponent } from './components/register/register.component';
+import { LoginComponent } from './components/login/login.component';
+import {AuthInterceptorProviders} from "./helpers/auth.interceptor";
+import { NavbarComponent } from './components/navbar/navbar.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +20,10 @@ import {FormsModule, ReactiveFormsModule} from "@angular/forms";
     GameListComponent,
     GameDetailsComponent,
     GameAddComponent,
-    GameComponent
+    GameComponent,
+    RegisterComponent,
+    LoginComponent,
+    NavbarComponent
   ],
   imports: [
     BrowserModule,
@@ -25,7 +32,7 @@ import {FormsModule, ReactiveFormsModule} from "@angular/forms";
     FormsModule,
     ReactiveFormsModule
   ],
-  providers: [],
+  providers: [AuthInterceptorProviders],
   bootstrap: [AppComponent]
 })
 export class AppModule {
