@@ -1,20 +1,20 @@
-TEST : {{isLoggedIn$ | async}}
-
-<ul>
-  <li><a routerLink="games">Games</a></li>
-  <li><a routerLink="games/add">Add</a></li>
-
-  <li *ngIf="!(isLoggedIn$ | async)">
-    <a routerLink="login">Login</a>
-  </li>
-
-  <li *ngIf="!(isLoggedIn$ | async)">
-    <a routerLink="register">Register</a>
-  </li>
-
-
-  <li *ngIf="isLoggedIn$ | async">
-    <a href="#" (click)="onLogout()">Logout</a>
-  </li>
-
-</ul>
+<mat-toolbar color="primary">
+  <span>Game Project</span>
+  <ul>
+    <li>
+      <a routerLink="games">Home</a>
+    </li>
+    <li>
+      <a routerLink="games/add">Add</a>
+    </li>
+    <li *ngIf="!(isLoggedIn$ | async)">
+      <a routerLink="login">Login</a>
+    </li>
+    <li *ngIf="!(isLoggedIn$ | async)">
+      <a routerLink="register">Register</a>
+    </li>
+    <li *ngIf="isLoggedIn$ | async">
+      <a href="#" (click)="onLogout()">Logout</a>
+    </li>
+  </ul>
+</mat-toolbar>
