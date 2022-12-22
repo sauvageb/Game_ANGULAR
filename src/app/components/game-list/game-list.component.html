@@ -1,12 +1,12 @@
 <div *ngFor="let item of games">
 
-  <app-game [game]=item></app-game>
+  <app-game [game]="item"></app-game>
 
 </div>
 
 
 <div *ngFor="let item of games$ | async">
 
-  <app-game [game]=item></app-game>
+  <app-game [game]="item"></app-game>
 
 </div>

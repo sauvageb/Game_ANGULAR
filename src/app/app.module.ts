@@ -7,9 +7,8 @@ import {GameListComponent} from './components/game-list/game-list.component';
 import {GameDetailsComponent} from './components/game-details/game-details.component';
 import {GameAddComponent} from './components/game-add/game-add.component';
 import {HttpClientModule} from "@angular/common/http";
-import { CercleComponent } from './components/cercle/cercle.component';
-import { GameComponent } from './components/game/game.component';
-import {ReactiveFormsModule} from "@angular/forms";
+import {GameComponent} from './components/game/game.component';
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 
 @NgModule({
   declarations: [
@@ -17,13 +16,13 @@ import {ReactiveFormsModule} from "@angular/forms";
     GameListComponent,
     GameDetailsComponent,
     GameAddComponent,
-    CercleComponent,
     GameComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
+    FormsModule,
     ReactiveFormsModule
   ],
   providers: [],
