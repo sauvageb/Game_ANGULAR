@@ -1,2 +1,13 @@
-<p>Game name : {{game.name}} </p>
-<a routerLink="['details',game.id]">Details</a>
+<mat-card>
+  <mat-card-header>
+    <mat-card-title>
+      <span>{{ game.name | titlecase }}</span>
+    </mat-card-title>
+    <mat-card-subtitle>
+      <!--      <span>{{ game.createdDate | date }}</span>-->
+    </mat-card-subtitle>
+  </mat-card-header>
+  <mat-card-actions align="end">
+    <button mat-raised-button color="primary" [routerLink]="['details',game.id]">Details</button>
+  </mat-card-actions>
+</mat-card>
