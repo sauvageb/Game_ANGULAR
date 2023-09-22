@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {Observable} from "rxjs";
 import {AuthService} from "../../services/auth.service";
+import { DialogService } from 'src/app/shared/services/dialog.service';
 
 @Component({
   selector: 'app-navbar',

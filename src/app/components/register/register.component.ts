@@ -26,7 +26,6 @@ export class RegisterComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    console.log('Register : ngOnInit');
     // SIMPLE REGISTER FORM
     this.registerForm = this.formBuilder.group({
         username: [
@@ -58,9 +57,6 @@ export class RegisterComponent implements OnInit {
   }
 
   onSignUp() {
-
-    this.dialogService.openSnackBar();
-
       this.authService.register(this.registerForm).subscribe({
       next: () => {
         this.dialogService.openSnackBar();

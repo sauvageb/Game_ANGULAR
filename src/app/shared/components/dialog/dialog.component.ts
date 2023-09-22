@@ -1,5 +1,6 @@
 import { Component, OnInit, inject } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
+import { MatCardModule } from '@angular/material/card';
 import { MatSnackBarModule, MatSnackBarRef } from '@angular/material/snack-bar';
 
 @Component({
@@ -7,7 +8,7 @@ import { MatSnackBarModule, MatSnackBarRef } from '@angular/material/snack-bar';
   templateUrl: './dialog.component.html',
   styleUrls: ['./dialog.component.css'],
   standalone: true,
-  imports: [MatButtonModule, MatSnackBarModule],
+  imports: [MatButtonModule, MatSnackBarModule, MatCardModule],
 })
 
 export class DialogComponent implements OnInit {

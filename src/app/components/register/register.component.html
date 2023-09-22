@@ -18,7 +18,7 @@
     <div class="form-row">
       <mat-form-field appearance="fill">
         <mat-label>Password</mat-label>
-        <input matInput formControlName="password" required>
+        <input matInput formControlName="password" type="password" required>
         <mat-error *ngIf="f['password'].errors?.['required']">Password is required</mat-error>
         <mat-error *ngIf="f['password'].errors?.['minlength']">Password must be at least 6 characters</mat-error>
       </mat-form-field>
@@ -27,7 +27,7 @@
     <div class="form-row">
       <mat-form-field appearance="fill">
         <mat-label>Confirmation</mat-label>
-        <input matInput formControlName="confirmPassword" required>
+        <input matInput formControlName="confirmPassword" type="password" required>
         <mat-error *ngIf="f['confirmPassword'].errors?.['required']">Confirm Password is required</mat-error>
         <mat-error *ngIf="f['confirmPassword'].errors?.['mustMatch']">Passwords must match</mat-error>
       </mat-form-field>
@@ -66,5 +66,3 @@
   </mat-card-actions>
 </form>
 </mat-card>
-
-<button (click)="onSignUp()"></button>

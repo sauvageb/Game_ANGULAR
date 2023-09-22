@@ -4,6 +4,7 @@ import {BehaviorSubject, catchError, delay, map, mergeMap, Observable, of} from 
 import {AuthStorage} from "./auth-storage.service";
 import {FormGroup} from "@angular/forms";
 import {SignupRequest} from "../models/signup-request";
+import { SigninRequest } from '../models/signin-request';
 
 @Injectable({
   providedIn: 'root'
@@ -22,8 +23,12 @@ export class AuthService {
               private sessionStorage: AuthStorage) {
   }
 
-  login(username: string, password: string): Observable<boolean> {
-    const signinRequest = {username, password};
+  login(form: FormGroup): Observable<boolean> {
+    let signinRequest: SigninRequest = {
+      username: form.value.username,
+      password: form.value.password
+    };
+
     return this.http
       .post<any>(`${AuthService.BASE_URL}/signin`, signinRequest)
       .pipe(
@@ -34,7 +39,7 @@ export class AuthService {
           return true;
         }),
         catchError((err) => {
-          throw new Error(`error login for ${username}`);
+          throw new Error(`error login for ${signinRequest.username}`);
         })
       );
   }

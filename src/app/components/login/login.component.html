@@ -1,2 +1,36 @@
-<p>login works!</p>
-<button (click)="onSignIn()">Sign in</button>
+<mat-card class="main-form">
+    <form [formGroup]="loginForm" (ngSubmit)="onSignIn()">
+    <mat-card-title>Sign In</mat-card-title>
+  
+    <mat-card class="form-card">
+      <mat-card-subtitle>Account</mat-card-subtitle>
+      <!--   .form-row>(mat-form-field>mat-label+input)*2-->
+      <div class="form-row">
+        <mat-form-field appearance="fill">
+          <mat-label>Username</mat-label>
+  
+          <input matInput formControlName="username" required>
+          <mat-error *ngIf="f['username'].errors?.['required']">Username is required</mat-error>
+          <mat-error *ngIf="f['username'].errors?.['usernameAlreadyExists']">Username already exists</mat-error>
+        </mat-form-field>
+      </div>
+  
+      <div class="form-row">
+        <mat-form-field appearance="fill">
+          <mat-label>Password</mat-label>
+          <input matInput formControlName="password" type="password" required>
+          <mat-error *ngIf="f['password'].errors?.['required']">Password is required</mat-error>
+          <mat-error *ngIf="f['password'].errors?.['minlength']">Password must be at least 6 characters</mat-error>
+        </mat-form-field>
+      </div>
+  
+    </mat-card>
+  
+    
+    <mat-card-actions>
+      <button mat-flat-button color="primary" type="submit" [disabled]="loginForm.invalid">SIGN IN</button>
+      <button mat-raised-button type="button" (click)="onSignUp()">Sign up</button>    
+    </mat-card-actions>
+  </form>
+  </mat-card>
+  

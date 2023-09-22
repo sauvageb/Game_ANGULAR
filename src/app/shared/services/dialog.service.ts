@@ -22,7 +22,11 @@ private durationInSeconds = 3;
       duration: this.durationInSeconds * 1000,
       horizontalPosition: this.horizontalPosition,
       verticalPosition: this.verticalPosition,
-      panelClass: ['dialog-success']
+      // panelClass: ['mat-toolbar', 'mat-primary']
+      // panelClass: ['mat-toolbar', 'mat-accent']
+      // panelClass: ['mat-toolbar', 'mat-warn']
+      panelClass: ['mat-toolbar']
+
     });
   
   }
