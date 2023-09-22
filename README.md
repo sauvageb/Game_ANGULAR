@@ -19,3 +19,18 @@ Plugins Intellij :
 
 ## Aperçus
 
+Connexion
+
+![Connexion](https://raw.githubusercontent.com/sauvageb/Game_ANGULAR/main/src/assets/GamesAngular_1.png)
+
+Inscription
+
+![Inscription](https://raw.githubusercontent.com/sauvageb/Game_ANGULAR/main/src/assets/GamesAngular_2.png)
+
+Calendrier
+
+![Calendrier](https://raw.githubusercontent.com/sauvageb/Game_ANGULAR/main/src/assets/GamesAngular_3.png)
+
+Jeux
+
+![Jeux](https://raw.githubusercontent.com/sauvageb/Game_ANGULAR/main/src/assets/GamesAngular_4.png)
