@@ -1,6 +1,6 @@
 import {AbstractControl, AsyncValidatorFn} from '@angular/forms';
 import {AuthService} from "../services/auth.service";
-import {map} from "rxjs";
+import {debounceTime, map, mergeMap, of} from "rxjs";
 
 // custom validator to check that two fields match
 export function MustMatch(controlName: string, matchingControlName: string) {
@@ -29,9 +29,10 @@ export function MustMatch(controlName: string, matchingControlName: string) {
 
 export function usernameExistsValidator(authService: AuthService): AsyncValidatorFn {
   return (control: AbstractControl) => {
-    return authService.checkUsernameAlreadyExist(control.value)
-      .pipe(
-        map(isExist => isExist ? {userExists: true} : null)
+    return of(control)
+      .pipe(debounceTime(1000),
+        mergeMap(control => authService.checkUsernameAlreadyExist(control.value)),
+        map((isExist: boolean) => isExist ? {usernameAlreadyExists: true} : null),
       );
   }
 }

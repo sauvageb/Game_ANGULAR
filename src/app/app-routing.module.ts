@@ -6,12 +6,14 @@ import {GameDetailsComponent} from "./components/game-details/game-details.compo
 import {LoginComponent} from "./components/login/login.component";
 import {IsSignGuardService} from "./helpers/is-sign-guard.service";
 import {RegisterComponent} from "./components/register/register.component";
+import {CalendarComponent} from "./components/calendar/calendar.component";
 
 const routes: Routes = [
 
   {path: '', redirectTo: 'games', pathMatch: 'full'},
   {path: 'login', component: LoginComponent},
   {path: 'register', component: RegisterComponent},
+  {path: 'calendar', component: CalendarComponent},
   {path: 'games', component: GameListComponent, canActivate: [IsSignGuardService]},
   {path: 'games/add', component: GameAddComponent, canActivate: [IsSignGuardService]},
   {path: 'games/details/:id', component: GameDetailsComponent, canActivate: [IsSignGuardService]}

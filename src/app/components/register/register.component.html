@@ -1,45 +1,70 @@
-<!-- main app container -->
-<div class="card m-3">
-  <h5 class="card-header">Sign Up</h5>
-  <div class="card-body">
-    <form [formGroup]="registerForm" (ngSubmit)="onSignUp()">
-      <div class="row">
+<mat-card class="main-form">
+  <form [formGroup]="registerForm" (ngSubmit)="onSignUp()">
+  <mat-card-title>Sign Up</mat-card-title>
 
-        <div class="col mb-3">
-          <label class="form-label">Username</label>
-          <input type="text" formControlName="username" class="form-control"
-                 [ngClass]="{ 'is-invalid': submitted && f['username'].errors }"/>
-          <div *ngIf="submitted && f['username'].errors" class="invalid-feedback">
-            <div *ngIf="f['username'].errors?.['required']">Username is required</div>
-          </div>
-        </div>
+  <mat-card class="form-card">
+    <mat-card-subtitle>Account</mat-card-subtitle>
+    <!--   .form-row>(mat-form-field>mat-label+input)*2-->
+    <div class="form-row">
+      <mat-form-field appearance="fill">
+        <mat-label>Username</mat-label>
 
-      </div>
+        <input matInput formControlName="username" required>
+        <mat-error *ngIf="f['username'].errors?.['required']">Username is required</mat-error>
+        <mat-error *ngIf="f['username'].errors?.['usernameAlreadyExists']">Username already exists</mat-error>
+      </mat-form-field>
+    </div>
 
-      <div class="row">
-        <div class="col mb-3">
-          <label class="form-label">Password</label>
-          <input type="password" formControlName="password" class="form-control"
-                 [ngClass]="{ 'is-invalid': submitted && f['password'].errors }"/>
-          <div *ngIf="submitted && f['password'].errors" class="invalid-feedback">
-            <div *ngIf="f['password'].errors?.['required']">Password is required</div>
-            <div *ngIf="f['password'].errors?.['minlength']">Password must be at least 6 characters</div>
-          </div>
-        </div>
-        <div class="col mb-3">
-          <label class="form-label">Confirm Password</label>
-          <input type="password" formControlName="confirmPassword" class="form-control"
-                 [ngClass]="{ 'is-invalid': submitted && f['confirmPassword'].errors }"/>
-          <div *ngIf="submitted && f['confirmPassword.errors']" class="invalid-feedback">
-            <div *ngIf="f['confirmPassword'].errors?.['required']">Confirm Password is required</div>
-            <!--            <div *ngIf="f['confirmPassword'].errors?.['mustMatch']">Passwords must match</div>-->
-          </div>
-        </div>
-      </div>
+    <div class="form-row">
+      <mat-form-field appearance="fill">
+        <mat-label>Password</mat-label>
+        <input matInput formControlName="password" required>
+        <mat-error *ngIf="f['password'].errors?.['required']">Password is required</mat-error>
+        <mat-error *ngIf="f['password'].errors?.['minlength']">Password must be at least 6 characters</mat-error>
+      </mat-form-field>
+    </div>
 
-      <div class="text-center">
-        <button class="btn btn-primary me-2">Register</button>
-      </div>
-    </form>
-  </div>
-</div>
+    <div class="form-row">
+      <mat-form-field appearance="fill">
+        <mat-label>Confirmation</mat-label>
+        <input matInput formControlName="confirmPassword" required>
+        <mat-error *ngIf="f['confirmPassword'].errors?.['required']">Confirm Password is required</mat-error>
+        <mat-error *ngIf="f['confirmPassword'].errors?.['mustMatch']">Passwords must match</mat-error>
+      </mat-form-field>
+    </div>
+
+    <div class="form-row">
+      <mat-radio-group aria-label="Select an option">
+        <mat-radio-group [formControl]="advancedModeCtrl">
+          <mat-radio-button value="simpleMode">Default</mat-radio-button>
+          <mat-radio-button value="advancedMode">Advanced</mat-radio-button>
+        </mat-radio-group>
+      </mat-radio-group>
+    </div>
+
+  </mat-card>
+
+  <mat-card class="form-card" *ngIf="showadvancedModeCtrl$ | async">
+    <mat-card-subtitle>Roles</mat-card-subtitle>
+
+    <div class="form-row" [formGroup]="roleForm">
+      <h4>Select your roles:</h4>
+      <p>
+        <mat-checkbox formControlName="user">Simple User</mat-checkbox>
+      </p>
+      <p>
+        <mat-checkbox formControlName="admin">Administrator</mat-checkbox>
+      </p>
+      <p>
+      </p>
+    </div>
+
+  </mat-card>
+
+  <mat-card-actions>
+    <button mat-flat-button color="primary" type="submit" [disabled]="registerForm.invalid">REGISTER</button>
+  </mat-card-actions>
+</form>
+</mat-card>
+
+<button (click)="onSignUp()"></button>

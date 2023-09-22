@@ -12,3 +12,7 @@ body {
   background-size: cover;
   background-attachment: fixed;
 }
+
+.dialog-success {
+  background-color: rgb(47, 255, 203);
+}

@@ -10,5 +10,12 @@ Le Backend est disponible sur https://github.com/sauvageb/Game_SPRING_BOOT
 
 - Angular 14
 
+- Material Angular
+
+Plugins Intellij :
+
+- Atom Materials Icons
+- Emmets
+
 ## Aperçus
 

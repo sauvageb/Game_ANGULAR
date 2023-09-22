@@ -25,6 +25,5 @@ export class IsSignGuardService implements CanActivate {
             return false;
           }
         }));
-
   }
 }

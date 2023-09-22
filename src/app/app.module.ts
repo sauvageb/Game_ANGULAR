@@ -15,6 +15,8 @@ import {AuthInterceptorProviders} from "./helpers/auth.interceptor";
 import {NavbarComponent} from './components/navbar/navbar.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {SharedModule} from "./shared/shared.module";
+import { CalendarComponent } from './components/calendar/calendar.component';
+import {FullCalendarModule} from "@fullcalendar/angular";
 
 @NgModule({
   declarations: [
@@ -25,7 +27,8 @@ import {SharedModule} from "./shared/shared.module";
     GameComponent,
     RegisterComponent,
     LoginComponent,
-    NavbarComponent
+    NavbarComponent,
+    CalendarComponent
   ],
   imports: [
     BrowserModule,
@@ -35,6 +38,7 @@ import {SharedModule} from "./shared/shared.module";
     ReactiveFormsModule,
     BrowserAnimationsModule,
     SharedModule,
+    FullCalendarModule // register FullCalendar with your app
   ],
   providers: [AuthInterceptorProviders],
   bootstrap: [AppComponent]

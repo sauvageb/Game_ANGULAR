@@ -1,0 +1,50 @@
+mat-form-field {
+  width: 45%;
+}
+
+mat-form-field.full-width {
+  width: 80%;
+  margin-left: 10%;
+}
+
+.form-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.form-card {
+  margin: 20px 0;
+}
+
+.mat-radio-button ~ .mat-radio-button {
+  margin-left: 16px;
+}
+
+mat-card-actions {
+  text-align: center;
+}
+
+.main-form {
+  padding-bottom: 30px;
+  position: relative;
+}
+
+.loading {
+  position: absolute;
+  top: -10px;
+  bottom: -10px;
+  left: -10px;
+  right: -10px;
+  height: inherit;
+  z-index: 10;
+  backdrop-filter: blur(5px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.error-text {
+  color: red;
+}

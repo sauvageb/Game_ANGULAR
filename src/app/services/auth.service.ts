@@ -1,6 +1,6 @@
 import {Injectable} from '@angular/core';
 import {HttpClient} from "@angular/common/http";
-import {BehaviorSubject, catchError, map, mergeMap, Observable, of} from "rxjs";
+import {BehaviorSubject, catchError, delay, map, mergeMap, Observable, of} from "rxjs";
 import {AuthStorage} from "./auth-storage.service";
 import {FormGroup} from "@angular/forms";
 import {SignupRequest} from "../models/signup-request";
@@ -44,9 +44,11 @@ export class AuthService {
     this.sessionStorage.clearSession();
   }
 
-  register(form: FormGroup): Observable<void> {
+  register(form: FormGroup): Observable<void> { 
     return of(form)
-      .pipe(map(f => {
+      .pipe(
+        delay(1000),
+        map(f => {
           if (!form.valid) {
             throw new Error('Register form invalid')
           }
@@ -54,14 +56,12 @@ export class AuthService {
             username: f.value.username,
             password: f.value.password
           };
-          console.log(dto)
           return dto;
         }),
         mergeMap(signupRequest => this.http.post<void>(`${AuthService.BASE_URL}/signup`, signupRequest)));
   }
 
   checkUsernameAlreadyExist(username: string): Observable<boolean> {
-    // return this.http.get<boolean>(`${this.BASE_URL}/signup/already?username=${username}`);
-    return of(false);
+    return this.http.get<boolean>(`${AuthService.BASE_URL}/signup/already/${username}`);
   }
 }
